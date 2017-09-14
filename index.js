@@ -168,7 +168,7 @@ function addResponders(message, targets, incidentID, buttonPusherID) {
 }
 
 //added kieran
-unction addTag(token, incident, service){
+function addTag(token, incident, service){
 
 	var body = {
 		"incident": {
