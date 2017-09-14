@@ -168,7 +168,7 @@ function addResponders(message, targets, incidentID, buttonPusherID) {
 }
 
 //added kieran
-function addTag(token, incident, service){
+function addTag(token, incident){
 
 	var body = {
 		"incident": {
@@ -205,7 +205,7 @@ app.post('/addtags', function(req, res) {
 
 	
 	var incident = req.body.messages[0].incident;
-	var service = req.body.messages[0].incident.service.name
+	//var service = req.body.messages[0].incident.service.name
 	var token = req.query.token;
 	var event = req.body.messages[0].event;
 	var incidentURL = req.body.messages[0].incident.self;
@@ -216,7 +216,7 @@ app.post('/addtags', function(req, res) {
 		console.log("event type: " + event );
 		
 		if ( event == 'incident.acknowledge' ) {
-			addTag(token, incident, service);
+			addTag(token, incident);
 		
 		} else {
 			res.end();
