@@ -181,8 +181,9 @@ function addTag(token, incident, service){
 		      "self": "https://api.pagerduty.com/priorities/PWR861O",
 		      "html_url": null,
 		      "name": "CXO"
-		}
-	};
+				}
+			}
+		};
 	var options = {
 		headers: { 
 			"Content-type": "application/json",
