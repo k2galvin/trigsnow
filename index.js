@@ -167,6 +167,69 @@ function addResponders(message, targets, incidentID, buttonPusherID) {
 	});	
 }
 
+//added kieran
+unction addTag(token, incident, service){
+
+	var body = {
+		"incident": {
+		    "type": "incident_reference",
+		    "status": "acknowledged",
+		      "priority": {
+		      "id": "PWR861O",
+		      "type": "priority",
+		      "summary": "CXO",
+		      "self": "https://api.pagerduty.com/priorities/PWR861O",
+		      "html_url": null,
+		      "name": "CXO"
+		}
+	};
+	var options = {
+		headers: { 
+			"Content-type": "application/json",
+			"Accept": "application/vnd.pagerduty+json;version=2",
+			"Authorization": "Token token=" + token
+		},
+		uri: "https://api.pagerduty.com/incidents/" + incident,
+		method: "POST",
+		json: body
+	};
+	request(options, function(error, response, body) {
+		if ( ! response.statusCode || response.statusCode < 200 || response.statusCode > 299 ) {
+			console.log("Error adding priority: " + error + "\nResponse: " + JSON.stringify(response, null, 2) + "\nBody: " + JSON.stringify(body, null, 2));
+		}
+	});
+}
+
+app.post('/addtags', function(req, res) {
+
+	
+	var incident = req.body.messages[0].incident;
+	var service = req.body.messages[0].incident.service.name
+	var token = req.query.token;
+	var event = req.body.messages[0].event;
+	var incidentURL = req.body.messages[0].incident.self;
+
+
+
+	getTriggerLE(token, incident.first_trigger_log_entry.self, function(logEntry) {
+		console.log("event type: " + event );
+		
+		if ( event == 'incident.acknowledge' ) {
+			addTag(token, incident, service);
+		
+		} else {
+			res.end();
+			return;
+		}
+		
+		
+	});
+
+	res.end();
+});
+
+//end kieran
+
 app.post('/allhands', function (req, res) {
 	token = req.query.token;
 	var requesterID;
