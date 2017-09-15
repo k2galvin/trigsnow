@@ -188,6 +188,7 @@ function addTag(token, incident){
 		headers: { 
 			"Content-type": "application/json",
 			"Accept": "application/vnd.pagerduty+json;version=2",
+			"From":"kieran@pagerduty.com",
 			"Authorization": "Token token=" + token
 		},
 		uri: "https://api.pagerduty.com/incidents/" + incident.id,
