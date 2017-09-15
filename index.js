@@ -209,7 +209,7 @@ app.post('/addtags', function(req, res) {
 	var token = req.query.token;
 	var event = req.body.messages[0].event;
 	//var incidentURL = req.body.messages[0].incident.self;
-	console.log("this is my incident "+incident);
+	console.log("this is my incident "+incident.id);
 	addTag(token, incident);
 	
 
