@@ -190,10 +190,13 @@ function addTag(token, incident){
 			"Accept": "application/vnd.pagerduty+json;version=2",
 			"Authorization": "Token token=" + token
 		},
-		uri: "https://api.pagerduty.com/incidents/" + incident,
+		uri: "https://api.pagerduty.com/incidents/" + incident.id,
 		method: "POST",
 		json: body
 	};
+	
+	console.log("uri for post "+ "https://api.pagerduty.com/incidents/" + incident.id);
+	
 	request(options, function(error, response, body) {
 		if ( ! response.statusCode || response.statusCode < 200 || response.statusCode > 299 ) {
 			console.log("Error adding priority: " + error + "\nResponse: " + JSON.stringify(response, null, 2) + "\nBody: " + JSON.stringify(body, null, 2));
@@ -210,7 +213,7 @@ app.post('/addtags', function(req, res) {
 	var event = req.body.messages[0].event;
 	//var incidentURL = req.body.messages[0].incident.self;
 	console.log("this is my incident "+incident.id);
-	addTag(token, incident.id);
+	addTag(token, incident);
 	
 
 
@@ -218,7 +221,7 @@ app.post('/addtags', function(req, res) {
 		console.log("event type: " + event );
 		
 		if ( event == 'incident.acknowledge' ) {
-			addTag(token, incident.id);
+			addTag(token, incident);
 		
 		} else {
 			res.end();
