@@ -204,13 +204,13 @@ function addTag(token, incident){
 app.post('/addtags', function(req, res) {
 	
 	console.log("calling add tag");
-	var incident = req.body.messages[0].incident.id;
+	var incident = req.body.messages[0].incident;
 	//var service = req.body.messages[0].incident.service.name
 	var token = req.query.token;
 	var event = req.body.messages[0].event;
 	//var incidentURL = req.body.messages[0].incident.self;
-	console.log("this is my incident "+incident);
-	addTag(token, incident);
+	console.log("this is my incident "+incident.id);
+	addTag(token, incident.id);
 	
 
 
@@ -218,7 +218,7 @@ app.post('/addtags', function(req, res) {
 		console.log("event type: " + event );
 		
 		if ( event == 'incident.acknowledge' ) {
-			addTag(token, incident);
+			addTag(token, incident.id);
 		
 		} else {
 			res.end();
