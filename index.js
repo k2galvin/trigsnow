@@ -169,7 +169,7 @@ function addResponders(message, targets, incidentID, buttonPusherID) {
 
 //added kieran
 function addTag(token, incident){
-
+	console.log("Calling addTag method");
 	var body = {
 		"incident": {
 		    "type": "incident_reference",
