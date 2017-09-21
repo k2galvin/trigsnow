@@ -191,7 +191,8 @@ function addTag(token, incident){
 			"From":"kieran@pagerduty.com",
 			"Authorization": "Token token=" + token
 		},
-		uri: "https://api.pagerduty.com/incidents/" + incident.id,
+		//uri: "https://api.pagerduty.com/incidents/" + incident.id,
+		uri: "https://api.pagerduty.com/incidents/PM8093B"
 		method: "POST",
 		json: body
 	};
