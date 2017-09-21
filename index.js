@@ -189,8 +189,8 @@ function addTag(token, incident){
 			"From":"kieran@pagerduty.com",
 			"Authorization": "Token token=" + token
 		},
-		//uri: "https://api.pagerduty.com/incidents/" + incident.id,
-		uri: "https://api.pagerduty.com/incidents/PG34N9G",
+		uri: "https://api.pagerduty.com/incidents/" + incident.id,
+		//uri: "https://api.pagerduty.com/incidents/PG34N9G",
 		method: "PUT",
 		json: body
 	};
@@ -214,7 +214,7 @@ app.post('/addtags', function(req, res) {
 	var token = req.query.token;
 	var event = req.body.messages[0].event;
 	//var incidentURL = req.body.messages[0].incident.self;
-	console.log("this is my incident ");
+	console.log("this is my incident "+incident.id);
 	addTag(token, incident);
 	
 
