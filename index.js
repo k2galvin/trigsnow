@@ -210,11 +210,11 @@ app.post('/addtags', function(req, res) {
 	var incident = req.body.messages[0].incident;
 	//var service = req.body.messages[0].incident.service.name
 	var token = req.query.token;
-	var tag_id = req.query.tag;
+	//var tag_id = req.query.tag;
 	var event = req.body.messages[0].event;
 	//var incidentURL = req.body.messages[0].incident.self;
 	console.log("this is my incident "+incident.id);
-	console.log("this is my tag id "+ tag_id);
+	//console.log("this is my tag id "+ tag_id);
 	addTag(token, incident);
 	
 
