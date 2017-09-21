@@ -191,13 +191,13 @@ function addTag(token, incident){
 		},
 		//uri: "https://api.pagerduty.com/incidents/" + incident.id,
 		uri: "https://api.pagerduty.com/incidents/PM8093B",
-		method: "POST",
+		method: "PUT",
 		json: body
 	};
 	
 	console.log("uri for post "+ "https://api.pagerduty.com/incidents/" + incident.id);
 	console.log("options "+JSON.stringify(options));
-	console.log("json body " + JSON.stringify(body));
+	
 	
 	request(options, function(error, response, body) {
 		if ( ! response.statusCode || response.statusCode < 200 || response.statusCode > 299 ) {
