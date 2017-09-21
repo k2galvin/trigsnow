@@ -196,7 +196,7 @@ function addTag(token, incident){
 	};
 	
 	console.log("uri for post "+ "https://api.pagerduty.com/incidents/" + incident.id);
-	console.log("options "+options);
+	console.log("options "+JSON.stringify(options));
 	console.log("json body " + JSON.stringify(body));
 	
 	request(options, function(error, response, body) {
