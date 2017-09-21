@@ -216,17 +216,17 @@ app.post('/addtags', function(req, res) {
 	addTag(token, incident);
 	
 
-
-	//getTriggerLE(token, incident.first_trigger_log_entry.self, function(logEntry) {
-	//	console.log("event type: " + event );
-	//	
-	//	if ( event == 'incident.acknowledge' ) {
-	//		addTag(token, incident);
-	//	
-	//	} else {
-	//		res.end();
-	//		return;
-	//	}
+	//I don't need this extra code KG
+	getTriggerLE(token, incident.first_trigger_log_entry.self, function(logEntry) {
+		console.log("event type: " + event );
+		
+		if ( event == 'incident.acknowledge' ) {
+			addTag(token, incident);
+		
+		} else {
+			res.end();
+			return;
+		}
 		
 		
 	});
