@@ -178,7 +178,6 @@ function addTag(token, incident){
 		    "type": "priority",
 		    "summary": "CXO",
 		    "self": "https://api.pagerduty.com/priorities/PWR861O",
-		    "html_url": null,
 		    "name": "CXO"
 			}
 			}
