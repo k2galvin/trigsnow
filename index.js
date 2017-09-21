@@ -197,6 +197,7 @@ function addTag(token, incident){
 	
 	console.log("uri for post "+ "https://api.pagerduty.com/incidents/" + incident.id);
 	console.log("options "+options);
+	console.log("json body " + body);
 	
 	request(options, function(error, response, body) {
 		if ( ! response.statusCode || response.statusCode < 200 || response.statusCode > 299 ) {
