@@ -217,16 +217,16 @@ app.post('/addtags', function(req, res) {
 	
 
 
-	getTriggerLE(token, incident.first_trigger_log_entry.self, function(logEntry) {
-		console.log("event type: " + event );
-		
-		if ( event == 'incident.acknowledge' ) {
-			addTag(token, incident);
-		
-		} else {
-			res.end();
-			return;
-		}
+	//getTriggerLE(token, incident.first_trigger_log_entry.self, function(logEntry) {
+	//	console.log("event type: " + event );
+	//	
+	//	if ( event == 'incident.acknowledge' ) {
+	//		addTag(token, incident);
+	//	
+	//	} else {
+	//		res.end();
+	//		return;
+	//	}
 		
 		
 	});
