@@ -176,9 +176,7 @@ function addTag(token, incident){
 		    "priority": {
 		    "id": "PWR861O",
 		    "type": "priority",
-		    "summary": "CXO",
-		    "self": "https://api.pagerduty.com/priorities/PWR861O",
-		    "name": "CXO"
+		    "self": "https://api.pagerduty.com/priorities/PWR861O"
 			}
 			}
 		};
