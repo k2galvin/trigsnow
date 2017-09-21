@@ -173,15 +173,14 @@ function addTag(token, incident){
 	var body = {
 		"incident": {
 		    "type": "incident_reference",
-		    "status": "acknowledged",
-		      "priority": {
-		      "id": "PWR861O",
-		      "type": "priority",
-		      "summary": "CXO",
-		      "self": "https://api.pagerduty.com/priorities/PWR861O",
-		      "html_url": null,
-		      "name": "CXO"
-				}
+		    "priority": {
+		    "id": "PWR861O",
+		    "type": "priority",
+		    "summary": "CXO",
+		    "self": "https://api.pagerduty.com/priorities/PWR861O",
+		    "html_url": null,
+		    "name": "CXO"
+			}
 			}
 		};
 	var options = {
