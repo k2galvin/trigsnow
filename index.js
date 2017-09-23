@@ -104,14 +104,14 @@ app.post('/addtags', function(req, res) {
 	//var incidentURL = req.body.messages[0].incident.self;
 	console.log("this is my incident "+incident.id);
 	//console.log("this is my tag id "+ tag_id);
-	addTag(token, incident);
+	//addTag(token, incident);
 	
 
 	//I don't need this extra code KG
 	getTriggerLE(token, incident.first_trigger_log_entry.self, function(logEntry) {
 		console.log("event type: " + event );
 		
-		if ( event == 'incident.acknowledge' ) {
+		if ( event == 'incident.trigger' ) {
 			addTag(token, incident);
 		
 		} else {
