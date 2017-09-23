@@ -57,15 +57,15 @@ function getTriggerLE(token, triggerURL, callback) {
 
 
 //added kieran
-function addTag(token, incident){
+function addTag(token, incident,tag){
 	console.log("Calling addTag method");
 	var body = {
 		"incident": {
 		    "type": "incident_reference",
 		    "priority": {
-		    "id": "PWR861O",
+		    "id": tag,
 		    "type": "priority",
-		    "self": "https://api.pagerduty.com/priorities/PWR861O"
+		    "self": "https://api.pagerduty.com/priorities/" + tag
 			}
 			}
 		};
@@ -97,13 +97,10 @@ app.post('/addtags', function(req, res) {
 	
 	console.log("calling add tag");
 	var incident = req.body.messages[0].incident;
-	//var service = req.body.messages[0].incident.service.name
 	var token = req.query.token;
-	//var tag_id = req.query.tag;
 	var event = req.body.messages[0].event;
-	//var incidentURL = req.body.messages[0].incident.self;
 	console.log("this is my incident "+incident.id);
-	//console.log("this is my tag id "+ tag_id);
+	
 	//addTag(token, incident);
 	
 
@@ -112,7 +109,7 @@ app.post('/addtags', function(req, res) {
 		console.log("event type: " + event );
 		
 		if ( event == 'incident.trigger' ) {
-			addTag(token, incident);
+			addTag(token, incident, "PWR861O");
 		
 		} else {
 			res.end();
