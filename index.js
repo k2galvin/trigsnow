@@ -93,7 +93,7 @@ function addTag(token, incident,tag){
 	});
 }
 
-app.post('/addtagCXO', function(req, res) {
+app.post('/add_cxo', function(req, res) {
 	//add the tag for CXO w/ID PWR861O
 	
 	console.log("calling add tag");
