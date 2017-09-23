@@ -94,7 +94,7 @@ function addTag(token, incident,tag){
 }
 
 app.post('/addtag_cxo', function(req, res) {
-	//add the tag for CXO w/ID PWR861O
+	//add the tag for CXO w/ID PWR861O cxo
 	
 	console.log("calling add tag");
 	var incident = req.body.messages[0].incident;
@@ -112,6 +112,68 @@ app.post('/addtag_cxo', function(req, res) {
 		
 		if ( event == 'incident.trigger' ) {
 			addTag(token, incident, "PWR861O");
+		
+		} else {
+			res.end();
+			return;
+		}
+		
+		
+	});
+
+	res.end();
+});
+
+app.post('/addtag_search', function(req, res) {
+	//add the tag for SEARCH w/ID PH9585R 
+	
+	console.log("calling add tag");
+	var incident = req.body.messages[0].incident;
+	var token = req.query.token;
+	var event = req.body.messages[0].event;
+	console.log("this is my incident "+incident.id);
+	console.log("this is my event "+incident.trigger);
+	
+	//addTag(token, incident);
+	
+
+	//I don't need this extra code KG
+	getTriggerLE(token, incident.first_trigger_log_entry.self, function(logEntry) {
+		console.log("event type: " + event );
+		
+		if ( event == 'incident.trigger' ) {
+			addTag(token, incident, "PH9585R");
+		
+		} else {
+			res.end();
+			return;
+		}
+		
+		
+	});
+
+	res.end();
+});
+
+app.post('/addtag_sams', function(req, res) {
+	//add the tag for SAMS w/ID P8WO3K8
+	
+	console.log("calling add tag");
+	var incident = req.body.messages[0].incident;
+	var token = req.query.token;
+	var event = req.body.messages[0].event;
+	console.log("this is my incident "+incident.id);
+	console.log("this is my event "+incident.trigger);
+	
+	//addTag(token, incident);
+	
+
+	//I don't need this extra code KG
+	getTriggerLE(token, incident.first_trigger_log_entry.self, function(logEntry) {
+		console.log("event type: " + event );
+		
+		if ( event == 'incident.trigger' ) {
+			addTag(token, incident, "P8WO3K8");
 		
 		} else {
 			res.end();
