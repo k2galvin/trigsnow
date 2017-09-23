@@ -101,6 +101,7 @@ app.post('/addtags_CXO', function(req, res) {
 	var token = req.query.token;
 	var event = req.body.messages[0].event;
 	console.log("this is my incident "+incident.id);
+	console.log("this is my event "+incident.trigger);
 	
 	//addTag(token, incident);
 	
