@@ -20,4 +20,10 @@ curl -X GET --header 'Accept: application/vnd.pagerduty+json;version=2' --header
 'https://api.pagerduty.com/priorities'
 
 Step 4. Modify the index.js file in this project to include the Priority IDs
+- Modify the name of the function to match your tag name 
+
+- app.post('/addtag_mytag1', function(req, res) {   --------- change /addtag_mytag to /addtag_mynewtagname
+- modify these the entries containing the priority ids returned from the curl command
+        addTag(token, incident, "ZYX861O");  -------- change the id in the quotes
+        
 
