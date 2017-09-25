@@ -106,7 +106,7 @@ app.post('/addtag_mytag1', function(req, res) {
 	//addTag(token, incident);
 	
 
-	//I don't need this extra code KG
+	//get incident info
 	getTriggerLE(token, incident.first_trigger_log_entry.self, function(logEntry) {
 		console.log("event type: " + event );
 		
@@ -138,7 +138,7 @@ app.post('/addtag_mytag2', function(req, res) {
 	//addTag(token, incident);
 	
 
-	//I don't need this extra code KG
+	//get incident info
 	getTriggerLE(token, incident.first_trigger_log_entry.self, function(logEntry) {
 		console.log("event type: " + event );
 		
@@ -169,7 +169,7 @@ app.post('/addtag_mytag3', function(req, res) {
 	//addTag(token, incident);
 	
 
-	//I don't need this extra code KG
+	//get incident info
 	getTriggerLE(token, incident.first_trigger_log_entry.self, function(logEntry) {
 		console.log("event type: " + event );
 		
@@ -187,7 +187,100 @@ app.post('/addtag_mytag3', function(req, res) {
 	res.end();
 });
 
-//end kieran
+app.post('/addtag_mytag4', function(req, res) {
+	//add the tag for priority w/ID
+	
+	console.log("calling add tag");
+	var incident = req.body.messages[0].incident;
+	var token = req.query.token;
+	var event = req.body.messages[0].event;
+	console.log("this is my incident "+incident.id);
+	console.log("this is my event "+incident.trigger);
+	
+	//addTag(token, incident);
+	
+
+	//get incident info
+	getTriggerLE(token, incident.first_trigger_log_entry.self, function(logEntry) {
+		console.log("event type: " + event );
+		
+		if ( event == 'incident.trigger' ) {
+			addTag(token, incident, "ZYXO3K8");
+		
+		} else {
+			res.end();
+			return;
+		}
+		
+		
+	});
+
+	res.end();
+});
+
+app.post('/addtag_mytag4', function(req, res) {
+	//add the tag for priority w/ID
+	
+	console.log("calling add tag");
+	var incident = req.body.messages[0].incident;
+	var token = req.query.token;
+	var event = req.body.messages[0].event;
+	console.log("this is my incident "+incident.id);
+	console.log("this is my event "+incident.trigger);
+	
+	//addTag(token, incident);
+	
+
+	//get incident info
+	getTriggerLE(token, incident.first_trigger_log_entry.self, function(logEntry) {
+		console.log("event type: " + event );
+		
+		if ( event == 'incident.trigger' ) {
+			addTag(token, incident, "ZYXO3K8");
+		
+		} else {
+			res.end();
+			return;
+		}
+		
+		
+	});
+
+	res.end();
+});
+
+
+app.post('/addtag_mytag5', function(req, res) {
+	//add the tag for priority w/ID
+	
+	console.log("calling add tag");
+	var incident = req.body.messages[0].incident;
+	var token = req.query.token;
+	var event = req.body.messages[0].event;
+	console.log("this is my incident "+incident.id);
+	console.log("this is my event "+incident.trigger);
+	
+	//addTag(token, incident);
+	
+
+	//get incident info
+	getTriggerLE(token, incident.first_trigger_log_entry.self, function(logEntry) {
+		console.log("event type: " + event );
+		
+		if ( event == 'incident.trigger' ) {
+			addTag(token, incident, "ZYXO3K8");
+		
+		} else {
+			res.end();
+			return;
+		}
+		
+		
+	});
+
+	res.end();
+});
+//end 
 
 app.listen(app.get('port'), function() {
 	console.log('AddTags listening on port', app.get('port'));
