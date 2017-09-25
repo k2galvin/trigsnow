@@ -156,7 +156,7 @@ app.post('/addtag_mytag2', function(req, res) {
 	res.end();
 });
 
-app.post('/addtag_mytag2', function(req, res) {
+app.post('/addtag_mytag3', function(req, res) {
 	//add the tag for priority w/ID
 	
 	console.log("calling add tag");
