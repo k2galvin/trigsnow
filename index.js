@@ -93,8 +93,8 @@ function addTag(token, incident,tag){
 	});
 }
 
-app.post('/addtag_cxo', function(req, res) {
-	//add the tag for CXO w/ID PWR861O cxo
+app.post('/addtag_mytag1', function(req, res) {
+	//add the tag for your priority 
 	
 	console.log("calling add tag");
 	var incident = req.body.messages[0].incident;
@@ -110,8 +110,9 @@ app.post('/addtag_cxo', function(req, res) {
 	getTriggerLE(token, incident.first_trigger_log_entry.self, function(logEntry) {
 		console.log("event type: " + event );
 		
+		//modify the ID in quotes to match your priority ID
 		if ( event == 'incident.trigger' ) {
-			addTag(token, incident, "PWR861O");
+			addTag(token, incident, "ZYX861O");
 		
 		} else {
 			res.end();
@@ -124,8 +125,8 @@ app.post('/addtag_cxo', function(req, res) {
 	res.end();
 });
 
-app.post('/addtag_search', function(req, res) {
-	//add the tag for SEARCH w/ID PH9585R 
+app.post('/addtag_mytag2', function(req, res) {
+	//add the tag for your priority w/ID  
 	
 	console.log("calling add tag");
 	var incident = req.body.messages[0].incident;
@@ -142,7 +143,7 @@ app.post('/addtag_search', function(req, res) {
 		console.log("event type: " + event );
 		
 		if ( event == 'incident.trigger' ) {
-			addTag(token, incident, "PH9585R");
+			addTag(token, incident, "XYZ585R");
 		
 		} else {
 			res.end();
@@ -155,8 +156,8 @@ app.post('/addtag_search', function(req, res) {
 	res.end();
 });
 
-app.post('/addtag_sams', function(req, res) {
-	//add the tag for SAMS w/ID P8WO3K8
+app.post('/addtag_mytag2', function(req, res) {
+	//add the tag for priority w/ID
 	
 	console.log("calling add tag");
 	var incident = req.body.messages[0].incident;
@@ -173,7 +174,7 @@ app.post('/addtag_sams', function(req, res) {
 		console.log("event type: " + event );
 		
 		if ( event == 'incident.trigger' ) {
-			addTag(token, incident, "P8WO3K8");
+			addTag(token, incident, "ZYXO3K8");
 		
 		} else {
 			res.end();
